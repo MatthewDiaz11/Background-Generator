@@ -1,0 +1,22 @@
+var css = document.querySelector("h3");
+var color1 = document.querySelector(".color1");
+var color2 = document.querySelector(".color2");
+var body = document.getElementById("gradient");
+var rButton = document.querySelector(".rButton");
+
+function setGradient() {
+    body.style.background = "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
+
+    css.textContent = body.style.background + ";";
+}
+
+function setRandomColour() {
+    var rColour1 = Math.floor(Math.random() * 16777215).toString(16);
+    var rColour2 = Math.floor(Math.random() * 16777215).toString(16);
+    body.style.background = "linear-gradient(to right, #" + rColour1 + ", #" + rColour2 + ")";
+    css.textContent = body.style.background + ";";
+}
+
+rButton.addEventListener("click", setRandomColour);
+color1.addEventListener("input", setGradient);
+color2.addEventListener("input", setGradient);
